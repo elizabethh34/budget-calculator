@@ -14,10 +14,7 @@ function htmlTask() {
 
 function scriptsTask() {
   return src('src/*.js')
-    .pipe(sourcemaps.init())
     .pipe(uglify())
-    .pipe(sourcemaps.write())
-    .pipe(concat('main.js'))
     .pipe(dest('dist'))
 }
 
@@ -26,7 +23,6 @@ function stylesTask() {
     .pipe(sourcemaps.init())
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write())
-    .pipe(concat('style.css'))
     .pipe(dest('dist'))
 }
 
