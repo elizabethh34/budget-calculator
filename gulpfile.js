@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const sourcemaps = require('gulp-sourcemaps'); 
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
+const imagemin = require('gulp-imagemin');
 
 function htmlTask() {
   return src('src/*.html')
@@ -31,6 +32,7 @@ function stylesTask() {
 
 function imagesTask() {
   return src('src/*.png')
+    .pipe(imagemin())
     .pipe(dest('dist'))
 }
 
