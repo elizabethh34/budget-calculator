@@ -3,6 +3,7 @@ const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const sourcemaps = require('gulp-sourcemaps'); 
+const concat = require('gulp-concat');
 
 function htmlTask() {
   return src('src/*.html')
@@ -19,6 +20,7 @@ function stylesTask() {
     .pipe(sourcemaps.init())
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write())
+    .pipe(concat('style.css'))
     .pipe(dest('dist'))
 }
 
