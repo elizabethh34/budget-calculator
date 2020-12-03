@@ -4,6 +4,7 @@ const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const sourcemaps = require('gulp-sourcemaps'); 
 const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 
 function htmlTask() {
   return src('src/*.html')
@@ -12,6 +13,10 @@ function htmlTask() {
 
 function scriptsTask() {
   return src('src/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(concat('main.js'))
     .pipe(dest('dist'))
 }
 

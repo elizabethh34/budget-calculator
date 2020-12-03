@@ -23,6 +23,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^9.0.0",
     "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
     "postcss": "^8.1.13"
   }
 }
