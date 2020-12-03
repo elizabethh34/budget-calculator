@@ -1,23 +1,30 @@
 const { src, dest, series, parallel } = require('gulp');
+const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
+const autoprefixer = require('autoprefixer');
+const sourcemaps = require('gulp-sourcemaps'); 
 
 function htmlTask() {
   return src('src/*.html')
-        .pipe(dest('dist'));
+    .pipe(dest('dist'))
 }
 
 function scriptsTask() {
   return src('src/*.js')
-        .pipe(dest('dist'));
+    .pipe(dest('dist'))
 }
 
 function stylesTask() {
   return src('src/*.css')
-        .pipe(dest('dist'));
+    .pipe(sourcemaps.init())
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sourcemaps.write())
+    .pipe(dest('dist'))
 }
 
 function imagesTask() {
   return src('src/*.png')
-        .pipe(dest('dist'));
+    .pipe(dest('dist'))
 }
 
 exports.html = htmlTask;
