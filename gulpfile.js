@@ -30,7 +30,7 @@ function scriptsTask() {
     }))
     .pipe(uglify())
     .pipe(sourcemaps.write())
-    .pipe(concat('app.js'))
+    .pipe(concat('main.js'))
     .pipe(dest('dist'))
 }
 
