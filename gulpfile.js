@@ -19,7 +19,7 @@ function stylesTask() {
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write())
     .pipe(concat('style.css'))
-    .pipe(dest('dist/css'))
+    .pipe(dest('dist'))
 }
 
 function scriptsTask() {
@@ -31,13 +31,13 @@ function scriptsTask() {
     .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(concat('app.js'))
-    .pipe(dest('dist/js'))
+    .pipe(dest('dist'))
 }
 
 function imagestask() {
   return src('src/images/*')
     .pipe(imagemin())
-    .pipe(dest('dist/images'))
+    .pipe(dest('dist'))
 }
 
 exports.html = htmlTask;
