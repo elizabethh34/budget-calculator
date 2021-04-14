@@ -14,7 +14,7 @@ function htmlTask() {
 }
 
 function stylesTask() {
-  return src('src/css/*.css')
+  return src('src/*.css')
     .pipe(sourcemaps.init())
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write())
@@ -23,7 +23,7 @@ function stylesTask() {
 }
 
 function scriptsTask() {
-  return src('src/js/*.js')
+  return src('src/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['@babel/env']
@@ -35,7 +35,7 @@ function scriptsTask() {
 }
 
 function imagestask() {
-  return src('src/images/*')
+  return src('src/*.png')
     .pipe(imagemin())
     .pipe(dest('dist'))
 }
